@@ -1,0 +1,114 @@
+{% extends 'main.html' %} {% block content %}
+<style>
+    .black-text-list li {
+        color: black !important;
+    }
+    
+    .jumbotron {
+        border-radius: 15px;
+        padding: 30px;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header {
+        margin-bottom: 30px;
+        text-align: center;
+        color: #343a40;
+    }
+    
+    .lead {
+        font-size: 1.2em;
+    }
+    
+    .btn-custom {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    .btn-custom:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+    
+    .highlight {
+        background-color: #ffeb3b;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="egfr-result" class="text-center mb-4"></div>
+
+            {% if pred == 1 %}
+            <div class="jumbotron mt-4">
+                <h1 class="display-4 text-danger font-weight-bold">You have a Kidney Disease!</h1>
+                <p class="lead">Please take the following actions:</p>
+
+                <strong class="highlight">Dos:</strong>
+                <ol class="black-text-list">
+                    <li>Stay Hydrated: Do drink plenty of water as advised by a healthcare professional.</li>
+                    <li>Choose Fruits and Vegetables: Opt for kidney-friendly options like apples, berries, and leafy greens.</li>
+                    <li>Incorporate Whole Grains: Include whole grains like brown rice and quinoa for fiber.</li>
+                    <li>Opt for Lean Proteins: Consume lean sources of protein like chicken, fish, and legumes.</li>
+                    <li>Use Healthy Fats: Choose healthy fats like olive oil over saturated fats.</li>
+                    <li>Limit Salt Intake: Season your food with herbs instead of salt to manage blood pressure.</li>
+                    <li>Plan Balanced Meals: Aim for a balanced plate with appropriate portions.</li>
+                    <li>Consider Plant-Based Proteins: Try beans and lentils in moderation to reduce animal protein intake.</li>
+                </ol>
+
+                <strong class="highlight">Don’t:</strong>
+                <ol class="black-text-list">
+                    <li>Avoid High-Sodium Foods: Don’t consume processed foods high in salt.</li>
+                    <li>Limit Potassium-Rich Foods: Don’t overconsume foods high in potassium if advised by a healthcare provider.</li>
+                    <li>Steer Clear of Phosphorus-Rich Foods: Don’t eat foods high in phosphorus like processed cheeses and cola.</li>
+                    <li>Limit Red and Processed Meats: Don’t consume excessive amounts which can strain the kidneys.</li>
+                    <li>Avoid Sugary Foods and Beverages: Don’t consume high-sugar foods as they can increase kidney strain.</li>
+                    <li>Minimize Alcohol Intake: Don’t drink alcohol excessively as it can worsen kidney function.</li>
+                    <li>Avoid Overeating: Don’t overeat, as excess weight increases kidney disease risk.</li>
+                    <li>Limit Dairy Products: Don’t consume high amounts of dairy if sensitive to phosphorus.</li>
+                </ol>
+
+                <strong>Suggested Medications Commonly Used in CKD: Should Take Under Doctor Coonsultation</strong>
+                <ol class="black-text-list">
+                    <li><strong>Lisinopril or Losartan</strong>: Lowers blood pressure and protects kidney function.</li>
+                    <li><strong>Furosemide</strong>: A diuretic that reduces fluid buildup, easing pressure on the kidneys.</li>
+                    <li><strong>Epoetin Alfa</strong>: Stimulates red blood cell production to address anemia from CKD.</li>
+                    <li><strong>Sevelamer</strong>: A phosphate binder to control high phosphate levels.</li>
+                    <li><strong>Calcitriol</strong>: A Vitamin D supplement for bone health.</li>
+                </ol>
+
+                <hr class="my-4">
+                <p>Proper doctor consultation needed.</p>
+                <p class="lead">
+                    <a class="btn btn-custom btn-lg" href="https://www.who.int/" role="button">Learn more</a>
+                </p>
+            </div>
+            {% else %}
+            <div class="jumbotron mt-4">
+                <h1 class="display-4 text-success font-weight-bold">Great! You are Healthy</h1>
+                <p class="lead">You are absolutely alright! There are no marks for Kidney Disease. Enjoy your life full of happiness.</p>
+                <hr class="my-4">
+                <p>Be careful about your health. Nothing is more important than your health.</p>
+                <p class="lead">
+                    <a class="btn btn-custom btn-lg" href="https://www.who.int/" role="button">Learn more</a>
+                </p>
+            </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <a href="{{ url_for('home') }}" class="btn btn-block btn-custom">Back to Home</a>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
