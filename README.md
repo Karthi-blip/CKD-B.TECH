@@ -7,7 +7,7 @@ This web application was developed using the **Flask** web framework. The predic
 1. **Clone or download the repository**:
 
 ```bash
-git clone <https://github.com/Karthi-blip/CKD-B.TECH.git>
+git clone https://github.com/Karthi-blip/CKD-B.TECH.git
 ```
 
 2. Change directory
