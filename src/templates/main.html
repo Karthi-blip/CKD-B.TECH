@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="og:title" content="Multi-Disease Prediction">
+    <meta name="og:image" content="static/logo1.png">
+    <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, AI, ML, DL, Web Development">
+    <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
+    <title>Multi-Disease Predictor</title>
+    <link rel="icon" href="{{ url_for('static', filename='logo1.png') }}" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        html, body { height: 100%; margin: 0; }
+        body { display: flex; flex-direction: column; }
+        header { height: 50px; background-color: beige; }
+        footer { height: 75px; background: #0c0b0b; padding: 10px; margin-top: auto; }
+        li { color: azure; }
+        .navbar-brand { font-weight: bold; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="{{ url_for('home') }}">DISEASE PREDICTION</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Start Diagnosis
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ url_for('kidneyPage') }}">Kidney Disease</a>
+                  <a class="dropdown-item" href="{{ url_for('heartPage') }}">Heart Disease</a>
+                  <a class="dropdown-item" href="{{ url_for('diabetesPage') }}">Diabetes</a>
+                  <a class="dropdown-item" href="{{ url_for('liverPage') }}">Liver Disease</a>
+                  <a class="dropdown-item" href="{{ url_for('cancerPage') }}">Breast Cancer</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ url_for('malariaPage') }}">Malaria</a>
+                  <a class="dropdown-item" href="{{ url_for('pneumoniaPage') }}">Pneumonia</a>
+                </div>
+              </li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('egfrPage') }}">eGFR</a></li>
+        </ul>
+    </div>
+</nav>
+<br><br><br><br>
+<main>
+    <div class="container-fluid" style="margin-bottom: 20px;">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+<footer>
+    <center>
+        <ul style="list-style-type:none;">
+            <li>© All rights reserved</li>
+            <li>"Health is wealth."</li>
+        </ul>
+    </center>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

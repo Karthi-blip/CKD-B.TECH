@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Malaria Prediction Result</h2>
+    <div class="jumbotron text-center">
+        {% if pred == 1 %}
+            <h3>Infected</h3>
+        {% else %}
+            <h3>Healthy</h3>
+        {% endif %}
+    </div>
+    <div class="text-center mt-3"><a href="{{ url_for('malariaPage') }}" class="btn btn-primary">Back</a></div>
+</div>
+{% endblock %}

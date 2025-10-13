@@ -1,45 +1,88 @@
 # Chronic-Kidney-Disease-Prediction
 
-This web application was developed using the **Flask** web framework. The predictive models were trained on comprehensive datasets, enabling high accuracy in predicting chronic kidney disease. 
+This web application was developed using the **Flask** web framework. The predictive models were trained on comprehensive datasets, enabling high accuracy in predicting chronic kidney disease.
 
-**Chronic-Kidney-Disease-Prediction**
+## Steps to Run This Application on Your System
 
-## Steps to run this application in your system
+1. **Clone or download the repository**:
 
-1. Clone or download the repo.
-2. Open the command prompt in the downloaded folder.
-3. Create a virtual environment
-
-```
-python -m venv /path/to/new/virtual/environment
+```bash
+git clone <https://github.com/Karthi-blip/CKD-B.TECH.git>
 ```
 
-4. Install all the dependencies:
+2. Change directory
 
+```bash
+cd CKD-B.TECH
 ```
+
+3 .Create a virtual environment:
+
+```bash
+python3 -m venv ckd-env
+```
+
+4. Activate the virtual environment:
+
+# On macOS/Linux:
+
+```bash
+source ckd-env/bin/activate
+```
+
+# On Windows:
+
+```bash
+ckd-env\Scripts\activate
+```
+
+5. Install necessary packages:
+
+```bash
+pip install pandas numpy
+```
+
+6. Install all dependencies from requirements.txt:
+
+```bash
 pip install -r requirements.txt
 ```
 
-5. Run the application
+7. Run the Flask application:
 
+```bash
+python3 app.py
 ```
-python app.py
+
+8. Open your browser and navigate to:
+
+```bash
+http://127.0.0.1:5000/
 ```
+Dataset
 
-## Dataset Links
+**The dataset used is from Kaggle**:
 
-The dataset was used from Kaggle.
+Kidney Disease Dataset
 
-- [Kidney Disease Dataset](https://www.kaggle.com/mansoordaku/ckdisease)
+Models and Accuracy of Prediction
+Disease	Type of Model	Accuracy
+Kidney Disease	Machine Learning Model	98.33%
 
-## Models with their Accuracy of Prediction
+## CKD Prediction Project Screenshots
 
-| Disease        | Type of Model            | Accuracy |
-| -------------- | ------------------------ | -------- |
-| Kidney-Disease       | Machine Learning Model   | 98.33%   |
+### Home Page
+![Home Page](assets/home_page.png)
 
-## Are you facing issues in running the code?
+The **Home Page** is the main interface of the CKD Prediction web application.  
+- Users can enter patient details such as age, blood pressure, sugar levels, and other medical parameters.  
+- The form collects all necessary inputs required by the predictive model.  
+- After filling the form, users can click the **Predict** button to get CKD prediction results.
 
-![image](https://github.com/user-attachments/assets/ec7a7b21-1cb2-4992-8869-6ba8d0dca728)
+### Result Page
+![Result Page](assets/result_page.png)
 
-![image](https://static.vecteezy.com/system/resources/previews/002/756/180/original/computer-error-screen-a-man-s-face-with-a-broken-facial-expression-is-floating-in-a-pop-up-window-hand-drawn-style-design-illustrations-vector.jpg)
+The **Result Page** displays the outcome of the CKD prediction.  
+- It shows whether the patient is predicted to have chronic kidney disease (`CKD`) or not (`Not CKD`).  
+- The page also highlights key input parameters for reference.  
+- Users can navigate back to the Home Page to perform another prediction.

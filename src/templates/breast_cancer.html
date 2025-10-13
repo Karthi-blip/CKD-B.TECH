@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Breast Cancer Prediction</h2>
+
+    <form action="{{ url_for('predict_cancer') }}" method="POST">
+        <div class="row">
+            {% for i in range(1,27) %}
+            <div class="col-md-3 mb-2">
+                <input class="form-control" type="text" name="feature{{ i }}" placeholder="Feature {{ i }}" required>
+            </div>
+            {% endfor %}
+        </div>
+        <center><input type="submit" class="btn btn-info mt-3" value="Predict Cancer"></center>
+    </form>
+</div>
+{% endblock %}

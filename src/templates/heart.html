@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Heart Disease Prediction</h2>
+    
+    <form action="{{ url_for('predict_heart') }}" method="POST">
+        <div class="row">
+            {% for field in ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal'] %}
+            <div class="col-md-4 mb-2">
+                <input class="form-control" type="text" name="{{ field }}" placeholder="{{ field.upper() }}" required>
+            </div>
+            {% endfor %}
+        </div>
+        <center><input type="submit" class="btn btn-info mt-3" value="Predict Heart Disease"></center>
+    </form>
+</div>
+{% endblock %}

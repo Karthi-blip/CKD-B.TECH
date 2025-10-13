@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Pneumonia Detection</h2>
+    {% if message %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+    <form action="{{ url_for('pneumoniapredictPage') }}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="file" name="image" class="form-control-file" required>
+        </div>
+        <center><input type="submit" class="btn btn-info mt-3" value="Predict Pneumonia"></center>
+    </form>
+</div>
+{% endblock %}

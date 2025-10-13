@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="row mb-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2 class="text-center">Chronic Kidney Disease Prediction</h2>
+
+        <div class="card p-3">
+            <form action="{{ url_for('predict_kidney') }}" method="POST">
+                <div class="row">
+                    {% for param in ['age','bp','al','su','rbc','pc','pcc','ba','bgr','bu','sc','pot','wc','htn','dm','cad','pe','ane'] %}
+                    <div class="col-md-4 mb-2"><input class="form-control" type="text" name="{{ param }}" placeholder="{{ param.upper() }}" required></div>
+                    {% endfor %}
+                </div>
+                <center><input type="submit" class="btn btn-info mt-3" value="Predict Kidney Health"></center>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% endblock %}

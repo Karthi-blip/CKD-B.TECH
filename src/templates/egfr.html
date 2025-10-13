@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">eGFR Calculator</h2>
+    <form action="{{ url_for('predictPage') }}" method="POST">
+        <div class="row mb-2">
+            <div class="col-md-4"><input class="form-control" type="text" name="creatinine" placeholder="Serum Creatinine" required></div>
+            <div class="col-md-4"><input class="form-control" type="text" name="age" placeholder="Age" required></div>
+            <div class="col-md-4">
+                <select class="form-control" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <center><input type="submit" class="btn btn-info mt-3" value="Calculate eGFR"></center>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Liver Disease Prediction</h2>
+
+    <form action="{{ url_for('predict_liver') }}" method="POST">
+        <div class="row">
+            {% for field in ['Age','Gender','Total_Bilirubin','Direct_Bilirubin','Alkaline_Phosphotase','Alamine_Aminotransferase','Aspartate_Aminotransferase','Total_Proteins','Albumin','Albumin_and_Globulin_Ratio'] %}
+            <div class="col-md-4 mb-2">
+                <input class="form-control" type="text" name="{{ field }}" placeholder="{{ field }}" required>
+            </div>
+            {% endfor %}
+        </div>
+        <center><input type="submit" class="btn btn-info mt-3" value="Predict Liver Disease"></center>
+    </form>
+</div>
+{% endblock %}
