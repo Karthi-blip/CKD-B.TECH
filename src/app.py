@@ -134,5 +134,35 @@ def pneumoniapredictPage():
 def egfrPage():
     return render_template('egfr.html')
 
+@app.route('/egfr/calculate', methods=['POST'])
+def calculate_egfr():
+    """
+    Basic CKD-EPI (2009) formula without race coefficient.
+    """
+    try:
+        creatinine = float(request.form.get('creatinine', '').strip())
+        age = float(request.form.get('age', '').strip())
+        sex = request.form.get('sex', 'Male')
+
+        if creatinine <= 0 or age <= 0:
+            raise ValueError("Values must be positive")
+
+        if sex.lower() == 'female':
+            k = 0.7
+            alpha = -0.329
+            sex_multiplier = 1.018
+        else:
+            k = 0.9
+            alpha = -0.411
+            sex_multiplier = 1.0
+
+        scr_k = creatinine / k
+        egfr = 141 * min(scr_k, 1) ** alpha * max(scr_k, 1) ** (-1.209) * (0.993 ** age) * sex_multiplier
+        egfr = round(egfr, 2)
+
+        return render_template('egfr.html', egfr_value=egfr)
+    except Exception as e:
+        return render_template('egfr.html', egfr_error=f"Unable to calculate eGFR: {e}")
+
 if __name__ == "__main__":
     app.run(debug=True)

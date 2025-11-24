@@ -2,9 +2,10 @@
 {% block content %}
 <div class="container mt-5">
     <h2 class="text-center">eGFR Calculator</h2>
-    <form action="{{ url_for('predictPage') }}" method="POST">
+    <form action="{{ url_for('calculate_egfr') }}" method="POST">
         <div class="row mb-2">
-            <div class="col-md-4"><input class="form-control" type="text" name="creatinine" placeholder="Serum Creatinine" required></div>
+            <div class="col-md-4"><input class="form-control" type="text" name="creatinine"
+                    placeholder="Serum Creatinine" required></div>
             <div class="col-md-4"><input class="form-control" type="text" name="age" placeholder="Age" required></div>
             <div class="col-md-4">
                 <select class="form-control" name="sex">
@@ -15,5 +16,14 @@
         </div>
         <center><input type="submit" class="btn btn-info mt-3" value="Calculate eGFR"></center>
     </form>
+    {% if egfr_value %}
+    <div class="alert alert-success mt-4" role="alert">
+        Estimated GFR: <strong>{{ egfr_value }} mL/min/1.73 m²</strong>
+    </div>
+    {% elif egfr_error %}
+    <div class="alert alert-danger mt-4" role="alert">
+        {{ egfr_error }}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -87,19 +87,19 @@ This pulls in Flask, scikit-learn, pandas, TensorFlow and all other runtime depe
 To run the application, you must execute the `app.py` file from within the `src` directory to ensure the model loads correctly.
 
 1.  Navigate to the `src` directory:
-    ```bash
-    cd src
-    ```
+```bash
+cd src
+```
 
 2.  Run the Flask application (from inside `src/` so `kidney.pkl` can be found):
-    ```bash
-    python3 app.py
-    ```
+```bash
+python3 app.py
+```
 
 3.  Open your web browser and go to:
-    ```
-    http://127.0.0.1:5000/
-    ```
+```
+http://127.0.0.1:5000/
+```
 
 ## 📸 Screenshots
 
